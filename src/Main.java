@@ -8,8 +8,8 @@ import static java.util.Collections.reverse;
 
 public class Main {
     public static void main(String[] args) {
-    //    task1();
-    //    task2();
+       task1();
+       task2();
         task3();
     }
 
@@ -67,20 +67,13 @@ public class Main {
 
         try {
             Scanner sc = new Scanner(new File(name1));
-            String line = sc.nextLine();
-            ArrayList<String> massive = new ArrayList<>();
-         massive.add(line);
-        List<String> words= Arrays.asList(line);
-         Collections.reverse(words);
-        System.out.println(String.join(" ", words));
+            ArrayList<String> list = new ArrayList<String>();
+            while (sc.hasNext()) {
+                list.add(sc.next());
+            }
+         Collections.reverse(list);
+        System.out.println(String.join(" ", list));
 
-         // while (line != null) {
-          //   for (int i = massive.length - 1; i >= 0; i--) {
-          //        System.out.println(line);
-           //   }
-        //     System.out.println(line);
-         //     line = sc.nextLine();
-         //   }
         } catch (FileNotFoundException e) {
             System.out.println("ERROR :(((");
         }
