@@ -4,13 +4,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-import static java.util.Collections.reverse;
-
 public class Main {
     public static void main(String[] args) {
-       task1();
-       task2();
+        task1();
+        task2();
         task3();
+        task4();
     }
 
     public static void task1() {
@@ -71,11 +70,35 @@ public class Main {
             while (sc.hasNext()) {
                 list.add(sc.next());
             }
-         Collections.reverse(list);
-        System.out.println(String.join(" ", list));
+            Collections.reverse(list);
+            System.out.println(String.join(" ", list));
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR :(((");
+        }
+    }
+
+    public static void task4() {
+        String name1 = "b2.txt";
+        String name2 = "b1.txt";
+        try {
+            Scanner sc1 = new Scanner(new File(name1));
+            ArrayList<String> list1 = new ArrayList<String>();
+            Scanner sc2 = new Scanner(new File(name2));
+            ArrayList<String> list2 = new ArrayList<String>();
+
+            while (sc1.hasNext() && sc2.hasNext()) {
+                list1.add(sc1.next());
+                list2.add(sc2.next());
+            }
+            for (String str:list2
+                 ) { if (list1.contains(str)) {
+                     list1.remove(str);
+            }
+            } System.out.println("Takih net: " + list1);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("ERROR :((((");
         }
     }
 }
