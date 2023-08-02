@@ -6,10 +6,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
-        task2();
+        // task1();
+        // task2();
         task3();
-        task4();
+        //  task4();
     }
 
     public static void task1() {
@@ -70,12 +70,26 @@ public class Main {
             while (sc.hasNext()) {
                 list.add(sc.next());
             }
-            Collections.reverse(list);
-            System.out.println(String.join(" ", list));
+            //Сollections.reverse(list);
+            //System.out.println(String.join(" ", list));
+
+            for (int i = list.size() - 1; i >= 0; i--) {
+                System.out.print(" " + list.get(i));
+            }
+            System.out.println();
+
+            printReverse(list, 0);
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR :(((");
         }
+    }
+
+    static void printReverse(List<String> list, int start_num)
+    {
+        if(start_num < list.size()-1)
+            printReverse(list, start_num+1);
+        System.out.print(list.get(start_num)+" ");
     }
 
     public static void task4() {
@@ -91,11 +105,13 @@ public class Main {
                 list1.add(sc1.next());
                 list2.add(sc2.next());
             }
-            for (String str:list2
-                 ) { if (list1.contains(str)) {
-                     list1.remove(str);
+            for (String str : list2
+            ) {
+                if (list1.contains(str)) {
+                    list1.remove(str);
+                }
             }
-            } System.out.println("Takih net: " + list1);
+            System.out.println("Takih net: " + list1);
 
         } catch (FileNotFoundException e) {
             System.out.println("ERROR :((((");
